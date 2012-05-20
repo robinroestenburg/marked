@@ -16,3 +16,10 @@ gem "jquery-rails"
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 gem "rspec-rails"
+
+group :test do
+  gem 'cucumber-rails', :require => false
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
+end
+
