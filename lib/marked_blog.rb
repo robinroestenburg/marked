@@ -1,0 +1,2 @@
+module MarkedBlog
+end
