@@ -1,0 +1,16 @@
+- content_for :content do
+
+  table.posts
+    thead
+      tr
+        th Title
+        th Published
+
+    tbody
+      - @posts.each do |post|
+        tr.post
+          td= post.title
+          td 
+            = link_to "Depublish", marked_blog.post_path(post), method: :delete
+
+== render :template => 'layouts/marked_blog'

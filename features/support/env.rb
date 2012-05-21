@@ -51,3 +51,9 @@ end
 #     DatabaseCleaner.strategy = :transaction
 #   end
 #
+
+module EngineRoutesHelper
+  include MarkedBlog::Engine.routes_url_helpers
+end
+World(EngineRoutesHelper)
+
