@@ -17,6 +17,8 @@ gem "jquery-rails"
 # gem 'ruby-debug19', :require => 'ruby-debug'
 gem "rspec-rails"
 gem "slim"
+gem "fuubar"
+gem "fuubar-cucumber"
 
 group :test do
   gem 'cucumber-rails', :require => false
