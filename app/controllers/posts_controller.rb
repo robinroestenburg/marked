@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    @posts = RetrievesPosts.all
   end
 
   def destroy
