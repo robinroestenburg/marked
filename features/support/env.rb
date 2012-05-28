@@ -57,3 +57,7 @@ module EngineRoutesHelper
 end
 World(EngineRoutesHelper)
 
+After('@markdown') do |scenario|
+
+  File.delete(File.join(::Rails.root, "app/posts/foo.markdown"))
+end
