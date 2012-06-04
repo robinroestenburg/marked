@@ -14,4 +14,8 @@ class PostsController < ApplicationController
     redirect_to posts_url
   end
 
+  def new
+    @post = Post.new(title: params[:title])
+  end
+
 end

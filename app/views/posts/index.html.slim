@@ -13,5 +13,7 @@
           td 
             - if post.created_at
               = link_to "Depublish", marked_blog.post_path(post), method: :delete
+            - else
+              = link_to "Publish", marked_blog.new_post_path
 
 == render :template => 'layouts/marked_blog'

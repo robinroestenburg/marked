@@ -1,0 +1,7 @@
+= simple_form_for(@post, url: marked_blog.posts_path) do |f|
+  = f.input :title
+  = f.input :author
+  = f.input :tags
+  = f.input :published_at
+  = f.button :submit, "Publish"
+
