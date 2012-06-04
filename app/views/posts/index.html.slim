@@ -11,6 +11,7 @@
         tr.post
           td= post.title
           td 
-            = link_to "Depublish", marked_blog.post_path(post), method: :delete
+            - if post.created_at
+              = link_to "Depublish", marked_blog.post_path(post), method: :delete
 
 == render :template => 'layouts/marked_blog'
