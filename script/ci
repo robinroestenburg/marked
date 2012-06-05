@@ -1,0 +1,11 @@
+#!/bin/bash
+export RAILS_ENV=test
+
+run() {
+  echo "=== Running: $* ==="
+  time bundle exec $*
+}
+
+run rake app:db:migrate:reset
+run rake spec
+run rake cucumber
