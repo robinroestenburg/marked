@@ -9,7 +9,7 @@ describe RetrievesUnpublishedPosts do
     context "with no unpublished posts" do
 
       it "returns an empty array" do
-        Dir.stub(:new) { [] }
+        Dir.stub(:glob) { [] }
         subject.all.should be_empty
       end
 
@@ -18,13 +18,13 @@ describe RetrievesUnpublishedPosts do
     context "with unpublished posts" do
 
       it "retrieves all posts from the file system" do
-        Dir.should_receive(:new) { ["foo"] }
+        Dir.should_receive(:glob) { ["foo"] }
         subject.all
       end
 
       it "returns an in-memory Post for each post" do
         foo = stub
-        Dir.stub(:new) { ["foo"] }
+        Dir.stub(:glob) { ["foo"] }
         Post.should_receive(:new).with({ title: "foo" }) { foo }
 
         subject.all.first.should == foo
