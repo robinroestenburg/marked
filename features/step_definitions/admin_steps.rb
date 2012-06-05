@@ -25,7 +25,6 @@ When "I publish the unpublished post" do
   select "13",      from: "post_published_at_4i"
   select "37",      from: "post_published_at_5i"
 
-  save_and_open_page
   click_button "Publish"
 end
 
@@ -33,7 +32,9 @@ Then "I should see a list with published posts" do
   page.should have_selector("table.published_posts tr.post", count: 2)
 end
 
-Then "I should see the post in the published posts list" do
-  save_and_open_page
+Then "I should see that the post has been published" do
+  page.should have_content 'Post succesfully published'
+  # This still needs to change.
+  page.should have_content 'foo.markdown'
   page.should have_selector("table.published_posts tr.post", count: 1)
 end

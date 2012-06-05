@@ -1,4 +1,7 @@
 - content_for :content do
+  - if flash[:notice]
+    div.notice
+      = flash[:notice]
 
   table.published_posts
     thead
@@ -14,6 +17,6 @@
             - if post.created_at
               = link_to "Depublish", marked_blog.post_path(post), method: :delete
             - else
-              = link_to "Publish", marked_blog.new_post_path
+              = link_to "Publish", marked_blog.new_post_path(title: post.title)
 
 == render :template => 'layouts/marked_blog'

@@ -54,5 +54,36 @@ describe PostsController do
       response.should render_template(:new)
     end
   end
+
+  describe "POST create" do
+
+    context "with succesful publication" do
+
+      it "saves the post" do
+        expect {
+          post :create, "post" => { "title"            => "Foo",
+                                    "author"           => "Bar",
+                                    "tags"             => "foo bar",
+                                    "published_at(1i)" => "2000",
+                                    "published_at(2i)" => "1",
+                                    "published_at(3i)" => "1",
+                                    "published_at(4i)" => "13",
+                                    "published_at(5i)" => "37" }
+        }.to change { Post.all.count }.by(1)
+      end
+
+      it "redirects to the index page" do
+        post :create
+        response.should redirect_to('http://test.host/blog_admin/posts')
+      end
+
+      it "sets a flash message" do
+        post :create
+        flash[:notice].should =~ /Post succesfully published/
+      end
+
+    end
+  end
 end
+
 

@@ -3,7 +3,7 @@ class RetrievesPosts
   class << self
 
     def all
-      (published + unpublished).uniq do |post| 
+      (published + unpublished).uniq do |post|
         post.title
       end
     end

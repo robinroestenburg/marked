@@ -4,6 +4,17 @@ class PostsController < ApplicationController
     @posts = RetrievesPosts.all
   end
 
+  def new
+    @post = Post.new(title: params[:title])
+  end
+
+  def create
+    post = Post.new(params[:post])
+    post.save
+    flash[:notice] = 'Post succesfully published.'
+    redirect_to marked_blog.posts_path
+  end
+
   def destroy
     post = Post.find(params[:id])
     if post
@@ -12,10 +23,6 @@ class PostsController < ApplicationController
     end
 
     redirect_to posts_url
-  end
-
-  def new
-    @post = Post.new(title: params[:title])
   end
 
 end
