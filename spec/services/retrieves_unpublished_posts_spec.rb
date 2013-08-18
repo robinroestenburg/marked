@@ -9,7 +9,7 @@ describe RetrievesUnpublishedPosts do
     context "with no unpublished posts" do
 
       it "returns an empty array" do
-        Dir.stub(:glob) { [] }
+        Dir.stub(:new) { [".", ".."] }
         subject.all.should be_empty
       end
 

@@ -13,7 +13,7 @@
       - @posts.each do |post|
         tr.post
           td= post.title
-          td 
+          td
             - if post.created_at
               = link_to "Depublish", marked_blog.post_path(post), method: :delete
             - else
